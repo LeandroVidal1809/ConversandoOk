@@ -1,0 +1,32 @@
+<!--
+  Generated template for the MenuAulaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>menuAula</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+Seleccion la sala a la que desea entrar:
+
+<ion-list>
+  <ion-item>
+    <ion-label>AULA</ion-label>
+    <ion-select [(ngModel)]="tipoUser">
+      <ion-option value="4A">4A</ion-option>
+      <ion-option value="4B">4B</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<button ion-button (click)="EntrarChat()" icon-right>
+  Ingresar
+  <ion-icon name="md-arrow-round-forward"></ion-icon>
+</button>
+</ion-content>
