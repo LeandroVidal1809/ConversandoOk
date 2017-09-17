@@ -1,5 +1,22 @@
+
+<ion-header>
+  
+  <div padding   style="width: 100%; padding: 26px; text-align:right;">
+    <button ion-button  icon-right outline  (click)="Registrarse()">
+       Registrarse
+     <ion-icon name="md-person-add"></ion-icon>
+   </button>
+   <button ion-button  icon-right outline   (click)="login()">
+       Ingresar
+     <ion-icon name="md-checkmark"></ion-icon>
+   </button>    
+  </div>
+  
+</ion-header>
+<ion-content>
+    <h1> Bienvenido al Conversando en el aula!</h1>
 <ion-list>
-  <h1> Bienvenido al Conversando en el aula!</h1>
+  
     <ion-item>
       <ion-label floating>Usuario</ion-label>
       <ion-input [(ngModel)]="username" type="text" value=""></ion-input>
@@ -12,10 +29,8 @@
 
   
   </ion-list>
-  
+  <br>
   <div padding>
-    <button ion-button full color="dark"  (click)="login()">Login</button>
-     <button ion-button full color="dark"  (click)="Registrarse()">Registrarse</button>
     <ion-list>
       <ion-item>
         <ion-label>Seleccione un Usuario...</ion-label>
@@ -29,4 +44,4 @@
       </ion-item>
     </ion-list>
   </div>
-
+</ion-content>

@@ -8,6 +8,8 @@ import { TabsPage } from '../tabs/tabs';
 import { RegisterPage } from '../register/register';
 import { ChatPage } from '../chat/chat';
 import { MenuAulaPage } from '../menu-aula/menu-aula';
+import { AlertController } from 'ionic-angular';
+/**
 /**
 /**
  * Generated class for the LoginPage page.
@@ -26,22 +28,19 @@ export class LoginPage {
   password:string;
   passwordconfirm:string;
   tipoUser:string;
-    constructor(public navCtrl: NavController, public navParams: NavParams,private _auth:AngularFireAuth) {
+    constructor(public navCtrl: NavController,public alertCtrl: AlertController, public navParams: NavParams,private _auth:AngularFireAuth) {
     }
     async login()
     {
+      if(this.username==null||this.password==null||this.password==''||this.username=='')
+        {
+          this.showAlert("Debe completar el Email y su Clave para ingresar","Campo vacio!");
+        }
+        else{
      await this._auth.auth.signInWithEmailAndPassword(this.username,this.password)
                           .then(result => {this.navCtrl.push(MenuAulaPage,{usuario:this.username})})
-                          .catch(function(error) {         
-                              alert(error.message);
-                              //console.log(error);
-                              
-                          });
-  
-                        // if(result!=undefined){
-                          
-                        //   console.log("INGRESO");
-                        // }
+                          .catch(error =>{this.showAlert(error.message,"Error al ingresar!")})
+        }  
   
     }
   UserValido()
@@ -72,6 +71,31 @@ export class LoginPage {
   
   }
   
+  showAlert(mensaje:string,titulo:string) {
+    
+    switch(mensaje)
+    {
+      
+      case "The email address is badly formatted.":
+      {
+
+        mensaje="El email no contiene un formato correcto";
+        break;
+      }
+      case "The password is invalid or the user does not have a password.":
+      {
+        mensaje="La clave es incorrecta, intente nuevamente";
+      }
+
+    }
+    let alert = this.alertCtrl.create({
+      title: titulo,
+      subTitle: mensaje,
+      buttons: ['OK']
+    });
+    alert.present();
+  }  
+
   Registrarse(){
     this.navCtrl.push(RegisterPage);
   

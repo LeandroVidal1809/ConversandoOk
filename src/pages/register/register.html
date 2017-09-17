@@ -1,3 +1,19 @@
+
+<ion-header>
+    
+    <div padding   style="width: 100%; padding: 26px; text-align:right;">
+      <button ion-button  icon-right outline  (click)="Cancelar()">
+       Cancelar
+       <ion-icon name="md-close"></ion-icon>
+     </button>
+     <button ion-button  icon-right outline   (click)="Aceptar()">
+         Aceptar
+       <ion-icon name="md-checkmark"></ion-icon>
+     </button>    
+    </div>
+    
+  </ion-header>
+  <ion-content>
 <ion-list>
   
     <ion-item>
@@ -14,7 +30,5 @@
       <ion-input [(ngModel)]="passwordconfirm"  type="password" value=""></ion-input>
     </ion-item>
   </ion-list>
-  <div padding>
-  <button ion-button full  (click)="Aceptar()">Aceptar</button>
-  <button ion-button full  (click)="Cancelar()">Cancelar</button>
-  </div>
+  
+  </ion-content>
