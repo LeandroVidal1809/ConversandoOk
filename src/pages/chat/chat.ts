@@ -44,7 +44,7 @@ export class ChatPage {
     mensaje:this.chatBox});
     
     this.chatBox="";
-    this.username="";
+ 
   }
 
 }
